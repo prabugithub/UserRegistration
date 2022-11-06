@@ -34,7 +34,6 @@ export class RegistrationComponent implements OnInit {
         this.snackBar.open('User registered successfully!', 'Close', {
           duration: 3000
         });
-        this.resetForm();
       }
     });
   }
