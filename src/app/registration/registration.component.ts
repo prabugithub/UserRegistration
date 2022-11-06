@@ -46,7 +46,7 @@ export class RegistrationComponent implements OnInit {
 
   public checkAddressError = (controlName: string, errorName: string, ind: number) => {
     const formGrp = this.userForm.controls.address as FormArray;
-    (formGrp.controls[ind] as FormGroup).controls[controlName].hasError(errorName);
+    return (formGrp.controls[ind] as FormGroup).controls[controlName].hasError(errorName);
   }
 
   addAddress() {
