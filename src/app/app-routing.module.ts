@@ -6,6 +6,10 @@ import { ViewusersComponent } from './viewusers/viewusers.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: DashboardComponent
+  },
+  {
     path: 'registration',
     component: RegistrationComponent
   },
