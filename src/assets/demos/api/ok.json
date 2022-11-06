@@ -1,0 +1,12 @@
+[
+    {
+        "id": "101",
+        "userName": "Johnsmith",
+        "email": "johnwebmail@gmail.com",
+        "address": [{
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "pinCode": "610342"
+        }]
+    }
+]

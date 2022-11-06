@@ -1,0 +1,31 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <h3>Sign In</h3>
+  <mat-divider></mat-divider>
+  <label>User Name:</label>
+  <input type="text" formControlName="userName" />
+  <label>Email:</label>
+  <input type="email" formControlName="email" />
+
+  <div class="address" formArrayName="address" *ngFor="let add of userForm.get('address').controls; let ind= index;">
+    <mat-divider></mat-divider>
+    <div formGroupName="{{ind}}">
+
+      <h3>Address {{ind+1}}:</h3>
+      <label>State:</label>
+      <input type="text" formControlName="state" />
+      <label>City:</label>
+      <input type="text" formControlName="city" />
+      <label>Pincode:</label>
+      <input type="number" formControlName="pincode" />
+      <mat-divider></mat-divider>
+    </div>
+
+  </div>
+  <br>
+  <button (click)="addAddress()">Add Address</button>
+
+  <button (click)="deleteAdress()">Delete Address</button>
+  <br>
+  <button type="submit">Register</button>
+  <button (click)="resetForm()">Reset</button>
+</form>
