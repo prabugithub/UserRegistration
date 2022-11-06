@@ -18,9 +18,12 @@
   <ng-container matColumnDef="address">
     <th mat-header-cell *matHeaderCellDef> Address </th>
     <td mat-cell *matCellDef="let element"> 
-      <div *ngFor="let add of element.address">
-        <span>State: {{add.state}}, City: {{add.city}}, Pincode: {{add.pincode}}</span>
-      </div>
+      <ng-container *ngFor="let add of element.address">
+        <div *ngIf="element.userName">
+          <span>State: {{add.state}}, City: {{add.city}}, Pincode: {{add.pincode}}</span>
+        </div>
+      </ng-container>
+      
     </td>
   </ng-container>
 

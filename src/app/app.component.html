@@ -1,12 +1,21 @@
 <div class="container">
     <div class="header">
-        <nav>
+        <div class="circle"><mat-icon aria-hidden="false" class="logo">home</mat-icon></div>
+        <nav mat-tab-nav-bar>
             <a routerLink="/registration" routerLinkActive="active" class="menu">Registration</a>
             <a routerLink="/review" routerLinkActive="active" class="menu">Review</a>
+            
         </nav>
+        <mat-icon aria-hidden="false" class="logout">login</mat-icon>
+          
+       
     </div>
-    <div class="content">
-        <router-outlet></router-outlet>
+    <div class="display">
+        <div class="right-bar"></div>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="right-bar"></div>
     </div>
     <div class="footer">
         <h4>Copy Rights</h4>

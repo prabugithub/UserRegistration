@@ -1,31 +1,50 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <h3>Sign In</h3>
   <mat-divider></mat-divider>
-  <label>User Name:</label>
-  <input type="text" formControlName="userName" />
-  <label>Email:</label>
-  <input type="email" formControlName="email" />
+  <mat-form-field class="half-width">
+    <label>User Name:</label>
+    <input matInput type="text" formControlName="userName" />
+    <mat-error *ngIf="checkError('userName', 'required')">User Name is required</mat-error>
+  </mat-form-field>
+  <mat-form-field class="half-width">
+    <label>Email:</label>
+    <input matInput type="email" formControlName="email" />
+    <mat-error *ngIf="checkError('email', 'required')">Email is required</mat-error>
+  </mat-form-field>
+  
 
   <div class="address" formArrayName="address" *ngFor="let add of userForm.get('address').controls; let ind= index;">
     <mat-divider></mat-divider>
     <div formGroupName="{{ind}}">
 
       <h3>Address {{ind+1}}:</h3>
+      <mat-form-field class="half-width">
       <label>State:</label>
-      <input type="text" formControlName="state" />
+      <input matInput type="text" formControlName="state" />
+      <mat-error *ngIf="checkAddressError('state', 'required', ind)">State is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="half-width">
       <label>City:</label>
-      <input type="text" formControlName="city" />
+      <input matInput type="text" formControlName="city" />
+      <mat-error *ngIf="checkAddressError('city', 'required', ind)">City is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="half-width">
       <label>Pincode:</label>
-      <input type="number" formControlName="pincode" />
+      <input matInput type="number" formControlName="pincode" />
+      <mat-error *ngIf="checkAddressError('pincode', 'required', ind)">Pincode is required</mat-error>
+      </mat-form-field>
       <mat-divider></mat-divider>
     </div>
 
   </div>
   <br>
-  <button (click)="addAddress()">Add Address</button>
+  <button mat-button type="button" (click)="addAddress()">Add Address</button>
 
-  <button (click)="deleteAdress()">Delete Address</button>
+  <button mat-button type="button" (click)="deleteAdress()">Delete Address</button>
   <br>
-  <button type="submit">Register</button>
-  <button (click)="resetForm()">Reset</button>
+  <div class="center">
+    <button mat-button type="submit" [disabled]="!userForm.valid">Register</button>
+  <button mat-button type="button" (click)="resetForm()">Reset</button>
+  </div>
+  
 </form>
